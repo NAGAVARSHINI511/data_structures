@@ -1,0 +1,110 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+    char ssn[10],name[10],dept[10],desig[10],phno[10];
+    int sal;
+    struct node *llink;
+    struct node *rlink;  
+};
+typedef struct node *NODE;
+NODE temp,first=NULL,end=NULL;
+
+NODE getnode(){
+    NODE x;
+    x=(NODE)malloc(sizeof(struct node));
+    return x;
+}
+
+void read(){
+    temp=getnode();
+    temp->llink=NULL;
+    temp->rlink=NULL;
+    printf("ssn : ");
+    scanf("%s",temp->ssn);
+    printf("name :");
+    scanf("%s",temp->name);
+    printf("despartment :");
+    scanf("%s",temp->dept);
+    printf("designation :");
+    scanf("%s",temp->desig);
+    printf("phone no :");
+    scanf("%s",temp->phno);
+    printf("salary : ");
+    scanf("%d",&temp->sal);
+}
+
+void insertion_end(){
+    printf("enter the details of the employee :\n");
+    read();
+
+    if(first==NULL){
+        first=temp;
+        end=temp;
+    }
+    else{
+        end->rlink=temp;
+        temp->llink=end;
+        end=temp;
+    }
+    return;
+}
+
+void  deletion_front(){
+    if(first==NULL){
+        printf("list is empty");
+        return;
+    }
+    else if(first==end){
+        printf("deleted element is %s",temp->ssn);
+        first=NULL;
+        end=NULL;
+        free(temp);
+    }
+    else{
+        printf("deleted element is %s",temp->ssn);
+        first=first->rlink;
+        first->llink=NULL;
+        free(temp);
+    }
+    return;
+}
+
+void display(){
+    temp=first;
+    int count=0;
+    if(first==NULL){
+        printf("employee details is null and count is %d",count-1);
+    }
+    else{
+        while(temp!=end){
+            printf("%s\t%s\t%s\t%s\t%s\t%d",temp->ssn,temp->name,temp->dept,temp->desig,temp->phno,temp->sal);
+            temp=temp->rlink;
+        }
+        printf("%s\t%s\t%s\t%s\t%s\t%d",temp->ssn,temp->name,temp->dept,temp->desig,temp->phno,temp->sal);
+    }
+    return;
+}
+
+
+void main(){
+    
+    int ch;
+    while(1){
+        printf("\n------------------MENU----------------\n");
+        printf("1.insert in DLL queue\n");
+        printf("2.delete in DLL queue\n");
+        printf("3.display\n");
+        printf("4.exit\n");
+        printf("------------------------------------------\n");
+        printf("enter your choice");
+        scanf("%d",&ch);
+        switch(ch){
+            case 1:insertion_end();break;
+            case 2:deletion_front();break;
+            case 3:display();break;
+            case 4:return;
+            default:printf("invalid choice");
+        }
+    }
+}
