@@ -1,3 +1,4 @@
+//hashing using linear probing method
 #include<stdio.h>
 //#include<stdio_ext.h>
 #define max 10
