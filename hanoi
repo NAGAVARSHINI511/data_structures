@@ -1,4 +1,4 @@
-//tower of hanoi
+//Tower of hanoi
 
 #include<stdio.h>
 #include<math.h>
