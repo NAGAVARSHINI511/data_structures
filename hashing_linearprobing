@@ -1,4 +1,5 @@
 //hashing using linear probing method
+//collision using linear probing
 #include<stdio.h>
 //#include<stdio_ext.h>
 #define max 10
