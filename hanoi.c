@@ -1,5 +1,5 @@
 //Tower of hanoi
-
+//using recursion
 #include<stdio.h>
 #include<math.h>
 
