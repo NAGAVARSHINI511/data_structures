@@ -1,4 +1,4 @@
-//hashing using linear probing method
+//hashing 
 //collision using linear probing
 #include<stdio.h>
 //#include<stdio_ext.h>
